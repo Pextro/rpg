@@ -1,3 +1,5 @@
+package com.br.quest.model;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -20,10 +22,23 @@ import lombok.Setter;
 @Entity
 @Table(name = "character")
 public class Character{
+    @Id
+    @SequenceGenerator(name = "character_seq", sequenceName = "character_sequence", allocationSize = 0)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
     private Integer id;
+
+    @Column(name = "nick", nullable = false)
     private String nick;
+
+    @Column(name = "level", nullable = false)
     private Integer level;
+
+    @Column(name = "classe",nullable = false)
     private String classe;
+
+    @Column(name = "sub_class",nullable = false)
     private String subClass;
+
+    @Column(name = "ranking",nullable = false)
     private String ranking;
 }

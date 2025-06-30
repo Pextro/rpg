@@ -16,7 +16,11 @@ import lombok.*;
 @Table(name = "board")
 public class Board{
 
+  @Id
+  @SequenceGenerator(name = "board_seq", sequenceName = "board_sequence", allocationSize = 0)
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
   private Integer id;
 
+  @Column(name = "titulo")
   private String titulo;
 }
