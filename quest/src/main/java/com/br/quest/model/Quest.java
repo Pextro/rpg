@@ -49,7 +49,7 @@ public class Quest{
     @Column(nullable = false)
     private Integer passoColuna;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn
     private Board idBoard;
 
