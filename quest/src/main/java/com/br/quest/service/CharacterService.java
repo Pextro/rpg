@@ -9,6 +9,9 @@ public class CharacterService {
     @Autowired
     private CharacterRepository characterDao;
 
+    public static String saveUpdatecharacter(Character character) {
+    }
+
     public String saveUpdate(Character character) {
         try {
 
