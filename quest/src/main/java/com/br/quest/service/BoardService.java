@@ -1,6 +1,6 @@
 package com.br.quest.service;
 
-
+import java.util.List;
 import com.br.quest.model.Board;
 import com.br.quest.repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +30,10 @@ public class BoardService {
         }catch (Exception e){
             return e.getMessage();
         }
+    }
+
+    public List<Board> getAllBoards() {
+        return boardDao.findAll();
     }
 
 }

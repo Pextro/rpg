@@ -1,6 +1,6 @@
 package com.br.quest.controller;
 
-
+import java.util.List;
 import com.br.quest.model.Quest;
 import com.br.quest.service.QuestService;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/Quest")
 @RequiredArgsConstructor
 @CrossOrigin("*")
-
 public class QuestController {
 
     @Autowired
@@ -20,11 +19,17 @@ public class QuestController {
     @PostMapping("/cadastro")
     @ResponseBody
     public String cadastrarAtualizar(@RequestBody Quest quest) {
-        return questService.saveUpdate(quest);
+        return questService.saveUpdateQuast(quest);
     }
 
     @DeleteMapping("/deletar/{id}")
-    public String deletar(@PathVariable Integer idQuest) {
-        return questService.delete(idQuest);
+    public String deleteQuast(@PathVariable Integer idQuest) {
+        return questService.deleteQuast(idQuest);
     }
+
+    @GetMapping("/todos")
+    public List<Quest> getAllQuests() {
+        return questService.getAllQuests();
+    }
+
 }

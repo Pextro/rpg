@@ -1,5 +1,6 @@
 package com.br.quest.service;
 
+import java.util.List;
 import com.br.quest.repository.CharacterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.br.quest.model.Character;
@@ -9,10 +10,7 @@ public class CharacterService {
     @Autowired
     private CharacterRepository characterDao;
 
-    public static String saveUpdatecharacter(Character character) {
-    }
-
-    public String saveUpdate(Character character) {
+    public String saveUpdateCharacter(Character character) {
         try {
 
             characterDao.saveAndFlush(character);
@@ -22,4 +20,18 @@ public class CharacterService {
             return e.getMessage();
         }
     }
+    public String deleteCharacter(Integer characterId){
+        try {
+
+            characterDao.deleteById(characterId);
+            return "Sucesso";
+
+        }catch (Exception e){
+            return e.getMessage();
+        }
+    }
+    public List<Character> getAllCharacters() {
+        return characterDao.findAll();
+    }
+
 }

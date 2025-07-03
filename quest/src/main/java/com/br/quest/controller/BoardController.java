@@ -1,5 +1,6 @@
 package com.br.quest.controller;
 
+import java.util.List;
 import com.br.quest.model.Board;
 import com.br.quest.service.BoardService;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +24,12 @@ public class BoardController {
 
     @DeleteMapping("/deletar/{id}")
     public String deletar(@PathVariable Integer idBoard) {
-        return boardService.delete(idBoard);
+        return boardService.deleteBoard(idBoard);
     }
+
+    @GetMapping("/todos")
+    public List<Board> getAllBoards() {
+        return boardService.getAllBoards();
+    }
+
 }
