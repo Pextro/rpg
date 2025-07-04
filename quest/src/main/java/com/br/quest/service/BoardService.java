@@ -4,7 +4,9 @@ import java.util.List;
 import com.br.quest.model.Board;
 import com.br.quest.repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class BoardService {
 
     @Autowired
