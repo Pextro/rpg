@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Character")
+@RequestMapping("/character")
 @RequiredArgsConstructor
 @CrossOrigin("*")
 public class CharacterController {
