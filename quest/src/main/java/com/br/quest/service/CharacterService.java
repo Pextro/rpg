@@ -4,7 +4,9 @@ import java.util.List;
 import com.br.quest.repository.CharacterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.br.quest.model.Character;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CharacterService {
 
     @Autowired

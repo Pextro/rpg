@@ -4,7 +4,9 @@ import java.util.List;
 import com.br.quest.model.Quest;
 import com.br.quest.repository.QuestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class QuestService {
 
     @Autowired
