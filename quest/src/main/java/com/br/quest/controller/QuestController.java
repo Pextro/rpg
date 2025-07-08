@@ -6,6 +6,9 @@ import com.br.quest.service.QuestService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
+
 
 @RestController
 @RequestMapping("/quest")
@@ -30,6 +33,13 @@ public class QuestController {
     @GetMapping("/todos")
     public List<Quest> getAllQuests() {
         return questService.getAllQuests();
+    }
+
+    @GetMapping("/buscarPorTitulo/{titulo}")
+    public ResponseEntity<?> questByTitulo(@PathVariable String titulo) {
+        return questService.getQuestByTitulo(titulo)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).body("Missão não encontrada."));
     }
 
 }

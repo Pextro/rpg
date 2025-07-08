@@ -32,5 +32,10 @@ public class CharacterController {
         return characterService.getAllCharacters();
     }
 
+    @GetMapping("/nick/{nick}")
+    public Character getCharacterByNick(@PathVariable String nick) {
+        return characterService.findCharacterByNick(nick);
+    }
+
 
 }

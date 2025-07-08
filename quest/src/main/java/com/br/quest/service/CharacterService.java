@@ -36,4 +36,8 @@ public class CharacterService {
         return characterDao.findAll();
     }
 
+    public Character findCharacterByNick(String nick) {
+        return characterDao.findByNick(nick);
+    }
+
 }

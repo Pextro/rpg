@@ -19,10 +19,8 @@ public class BoardController {
 
     @PostMapping("/cadastro")
     @ResponseBody
-    public String cadastrarAtualizar(@RequestBody BoardDto board) {
-        Board newBoard = new Board();
-        newBoard.setTitulo(board.titulo().toString());
-        return boardService.saveUpdateBoard(newBoard);
+    public String cadastrarAtualizar(@RequestBody Board board) {
+        return boardService.saveUpdateBoard(board);
     }
 
     @DeleteMapping("/deletar/{id}")
