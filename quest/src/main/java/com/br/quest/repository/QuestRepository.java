@@ -8,5 +8,5 @@ import java.util.Optional;
 public interface QuestRepository extends JpaRepository<Quest,Integer>  {
 
     Optional<Quest> findByTitulo(String titulo);
-    Character findByCharacter(String)
+    //Character findByCharacter(String)//
 }

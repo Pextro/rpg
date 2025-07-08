@@ -36,10 +36,11 @@ public class QuestController {
     }
 
     @GetMapping("/buscarPorTitulo/{titulo}")
-    public ResponseEntity<?> questByTitulo(@PathVariable String titulo) {
+    public ResponseEntity<Quest> getQuestByTitulo(@PathVariable String titulo) {
         return questService.getQuestByTitulo(titulo)
                 .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).body("Missão não encontrada."));
+                .orElse(ResponseEntity.notFound().build());
     }
+
 
 }
