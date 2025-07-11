@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import com.br.quest.model.Quest;
 import com.br.quest.repository.QuestRepository;
+import com.br.quest.utils.QuestDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,4 +44,15 @@ public class QuestService {
     public Optional<Quest> getQuestByTitulo(String titulo) {
         return questDao.findByTitulo(titulo);
     }
+    public void save(QuestDto questDto) {
+        Quest quest = new Quest();
+        quest.setTitulo(questDto.titulo());
+        quest.setResumo(questDto.resumo());
+        quest.setDescricao(questDto.descricao());
+        quest.setRecompensa(questDto.recompensa());
+        quest.setDificuldade(questDto.dificuldade());
+
+        questDao.saveAndFlush(quest);
+    }
 }
+

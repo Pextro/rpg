@@ -27,12 +27,12 @@ public class CharacterController {
         return characterService.deleteCharacter(idCharacter);
     }
 
-    @GetMapping("/todos")
+    @GetMapping("/find/todos")
     public List<Character> getAllCharacters() {
         return characterService.getAllCharacters();
     }
 
-    @GetMapping("/nick/{nick}")
+    @GetMapping("/find/nick/{nick}")
     public Character getCharacterByNick(@PathVariable String nick) {
         return characterService.findCharacterByNick(nick);
     }

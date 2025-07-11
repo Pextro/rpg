@@ -19,7 +19,9 @@ public class BoardController {
 
     @PostMapping("/cadastro")
     @ResponseBody
-    public String cadastrarAtualizar(@RequestBody Board board) {
+    public String cadastrarAtualizar(@RequestBody BoardDto boardDto) {
+        Board board = new Board();
+        board.setTitulo(boardDto.titulo());
         return boardService.saveUpdateBoard(board);
     }
 
@@ -28,7 +30,7 @@ public class BoardController {
         return boardService.deleteBoard(idBoard);
     }
 
-    @GetMapping("/todos")
+    @GetMapping("/find/todos")
     public List<Board> getAllBoards() {
         return boardService.getAllBoards();
     }

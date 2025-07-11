@@ -3,6 +3,7 @@ package com.br.quest.model;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -51,7 +52,14 @@ public class Quest{
 
     @ManyToOne
     @JoinColumn
-    private Board idBoard;
+    private Board board;
+
+    @ManyToMany
+    @JoinTable(
+            name = "quest_character",
+            joinColumns = @JoinColumn(name = "quest_id"),
+            inverseJoinColumns = @JoinColumn(name = "character_id"))
+    private Set<Character> character;
 
     @Column(nullable = false)
     private String mestre;

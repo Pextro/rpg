@@ -1,6 +1,5 @@
 package com.br.quest.repository;
 
-import com.br.quest.model.Character;
 import com.br.quest.model.Quest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
